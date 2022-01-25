@@ -10,16 +10,17 @@ const UploadForm = () => {
 
     const changeHandler = (e) =>{
         let selected = e.target.files[0];
-        if(selected && types.includes(selected.type)){
-            setFile(selected);
-            setError('');
-        }
-        else{
-            setFile(null);
-            setError('Please selesct an image file (png or jpeg)');
-        }
+        setFile(selected);
+        setError('');
+        // if(selected && types.includes(selected.type)){
+           
+        // }
+        // else{
+        //     setFile(null);
+        //     setError('Please selesct an image file (png or jpeg)');
+        // }
     }
-
+    file && console.log (file.name);
     return (
         <form>
             <label>
@@ -30,7 +31,7 @@ const UploadForm = () => {
                { error && <div className="error">{error}</div>}
                { file && <div>{file.name}</div>}
                { file && <ProgressBar file={file} setFile={setFile} />}
-            </div>
+            </div> 
         </form>
     )
 }
